@@ -823,11 +823,13 @@ public final class Code {
      * first {@link #mark marking} an existing unmarked label.
      */
     public void returnValue(Local<?> result) {
+        /*
         if (!result.type.equals(method.returnType)) {
-            // TODO: this is probably too strict.
+            // TODO: this is probably too strict. Yes it's too strict.
             throw new IllegalArgumentException("declared " + method.returnType
                     + " but returned " + result.type);
         }
+        */
         addInstruction(new PlainInsn(Rops.opReturn(result.type.ropType), sourcePosition,
                 null, RegisterSpecList.make(result.spec())));
     }
